@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>抽卡</title>
+    <script src=".\bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href=".\bootstrap.min.css">
+    <script src=".\Avatar.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="progress mt-5">
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 10%;"
+                aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" id="successBar"></div>
+            <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 10%;"
+                aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" id="wrongBar"></div>
+            <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 10%;"
+                aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" id="missBar"></div>
+            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%;" aria-valuenow="10"
+                aria-valuemin="0" aria-valuemax="100" id="waitBar"></div>
+        </div>
+        <div class="container">
+            <div class="row gx-5 mt-4 justify-content-center">
+                <div class="col-8 d-flex flex-column align-items-end">
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnPath" id="btnDestruction" autocomplete="off"
+                            checked="" data-eusoft-scrollable-element="1">
+                        <label class="btn btn-secondary" for="btnDestruction">
+                            <img src="img/Destruction.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                        </label>
+                        <input type="radio" class="btn-check" name="btnPath" id="btnHunt" autocomplete="off"
+                            data-eusoft-scrollable-element="1">
+                        <label class="btn btn-secondary" for="btnHunt">
+                            <img src="img/Hunt.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                        </label>
+                        <input type="radio" class="btn-check" name="btnPath" id="btnErudition" autocomplete="off"
+                            data-eusoft-scrollable-element="1">
+                        <label class="btn btn-secondary" for="btnErudition">
+                            <img src="img/Erudition.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                        </label>
+                        <input type="radio" class="btn-check" name="btnPath" id="btnHarmony" autocomplete="off"
+                            data-eusoft-scrollable-element="1">
+                        <label class="btn btn-secondary" for="btnHarmony">
+                            <img src="img/Harmony.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                        </label>
+                        <input type="radio" class="btn-check" name="btnPath" id="btnNihility" autocomplete="off"
+                            data-eusoft-scrollable-element="1">
+                        <label class="btn btn-secondary" for="btnNihility">
+                            <img src="img/Nihility.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                        </label>
+                        <input type="radio" class="btn-check" name="btnPath" id="btnPreservation" autocomplete="off"
+                            data-eusoft-scrollable-element="1">
+                        <label class="btn btn-secondary" for="btnPreservation">
+                            <img src="img/Preservation.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                        </label>
+                        <input type="radio" class="btn-check" name="btnPath" id="btnAbundance" autocomplete="off"
+                            data-eusoft-scrollable-element="1">
+                        <label class="btn btn-secondary" for="btnAbundance">
+                            <img src="img/Abundance.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                        </label>
+                        <input type="radio" class="btn-check" name="btnPath" id="btnRemembrance" autocomplete="off"
+                            data-eusoft-scrollable-element="1">
+                        <label class="btn btn-secondary" for="btnRemembrance">
+                            <img src="img/Remembrance.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                        </label>
+                    </div>
+
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnElement" id="btnPhys" autocomplete="off"
+                            checked="" data-eusoft-scrollable-element="1">
+                        <label class="btn btn-secondary" for="btnPhys">
+                            <img src="img/Phys.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                        </label>
+                        <input type="radio" class="btn-check" name="btnElement" id="btnFire" autocomplete="off"
+                            data-eusoft-scrollable-element="1">
+                        <label class="btn btn-secondary" for="btnFire">
+                            <img src="img/Fire.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                        </label>
+                        <input type="radio" class="btn-check" name="btnElement" id="btnIce" autocomplete="off"
+                            data-eusoft-scrollable-element="1">
+                        <label class="btn btn-secondary" for="btnIce">
+                            <img src="img/Ice.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                        </label>
+                        <input type="radio" class="btn-check" name="btnElement" id="btnElec" autocomplete="off"
+                            data-eusoft-scrollable-element="1">
+                        <label class="btn btn-secondary" for="btnElec">
+                            <img src="img/Elec.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                        </label>
+                        <input type="radio" class="btn-check" name="btnElement" id="btnWind" autocomplete="off"
+                            data-eusoft-scrollable-element="1">
+                        <label class="btn btn-secondary" for="btnWind">
+                            <img src="img/Wind.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                        </label>
+                        <input type="radio" class="btn-check" name="btnElement" id="btnQuantum" autocomplete="off"
+                            data-eusoft-scrollable-element="1">
+                        <label class="btn btn-secondary" for="btnQuantum">
+                            <img src="img/Quantum.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                        </label>
+                        <input type="radio" class="btn-check" name="btnElement" id="btnImaginary" autocomplete="off"
+                            data-eusoft-scrollable-element="1">
+                        <label class="btn btn-secondary" for="btnImaginary">
+                            <img src="img/Imaginary.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                        </label>
+                    </div>
+                </div>
+                <div class="col-4 d-flex align-items-center">
+                    <button type="button" class="btn btn-secondary me-3" id="btnSubmit"
+                        onclick="submitAnswer()">提交</button>
+                    <button type="button" class="btn btn-secondary" id="draw-button" onclick="drawCard()">下一题</button>
+                </div>
+            </div>
+        </div>
+        <div class="row gx-5 my-3">
+            <div class="col-3">
+                <ul class="nav nav-tabs" role="tablist" data-eusoft-scrollable-element="1">
+                    <li class="nav-item" role="presentation" data-eusoft-scrollable-element="1">
+                        <a class="nav-link active" data-bs-toggle="tab" href="#path" aria-selected="true"
+                            role="tab">命途介绍</a>
+                    </li>
+                    <li class="nav-item" role="presentation" data-eusoft-scrollable-element="1">
+                        <a class="nav-link" data-bs-toggle="tab" href="#element" aria-selected="false" role="tab"
+                            tabindex="-1">属性介绍</a>
+                    </li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade active show" id="path" role="tabpanel">
+                        <ul class="list-group">
+                            <li class="list-group-item active d-flex justify-content-between align-items-center">
+                                毁灭
+                                <img src="img/Destruction.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                兼具不俗的输出与生存能力，能适应不同的作战环境
+                            </li>
+                            <li class="list-group-item active d-flex justify-content-between align-items-center">
+                                巡猎
+                                <img src="img/Hunt.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                有着非凡的单体攻击能力，是战胜精英敌人的主要输出力量
+                            </li>
+                            <li class="list-group-item active d-flex justify-content-between align-items-center">
+                                智识
+                                <img src="img/Erudition.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                拥有出色的群体攻击能力，可以将复数的敌人一网打尽
+                            </li>
+                            <li class="list-group-item active d-flex justify-content-between align-items-center">
+                                同谐
+                                <img src="img/Harmony.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                能为我方施加增益效果，提升团队的整体战斗力
+                            </li>
+                            <li class="list-group-item active d-flex justify-content-between align-items-center">
+                                虚无
+                                <img src="img/Nihility.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                能为敌方施加负面效果，降低敌方战斗力争取优势
+                            </li>
+                            <li class="list-group-item active d-flex justify-content-between align-items-center">
+                                存护
+                                <img src="img/Preservation.png" class="img-fluid"
+                                    style="max-width: 35px; height: auto;">
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                具备强大的保护能力，通过不同的方式守护同伴
+                            </li>
+                            <li class="list-group-item active d-flex justify-content-between align-items-center">
+                                丰饶
+                                <img src="img/Abundance.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                能够治疗我方伤势，为团队提供回复能力
+                            </li>
+                            <li class="list-group-item active d-flex justify-content-between align-items-center">
+                                记忆
+                                <img src="img/Remembrance.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                能召唤拥有特殊能力的忆灵，在战斗中与团队并肩作战
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="element" role="tabpanel">
+                        <ul class="list-group">
+                            <li
+                                class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
+                                物理
+                                <img src="img/Phys.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                            </li>
+                            <li
+                                class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
+                                火
+                                <img src="img/Fire.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                            </li>
+                            <li
+                                class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
+                                冰
+                                <img src="img/Ice.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                            </li>
+                            <li
+                                class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
+                                雷
+                                <img src="img/Elec.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                            </li>
+                            <li
+                                class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
+                                风
+                                <img src="img/Wind.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                            </li>
+                            <li
+                                class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
+                                量子
+                                <img src="img/Quantum.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                            </li>
+                            <li
+                                class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
+                                虚数
+                                <img src="img/Imaginary.png" class="img-fluid" style="max-width: 35px; height: auto;">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div id="picture" class="d-flex justify-content-center"></div>
+                <div id="theName" class="d-flex justify-content-center"></div>
+            </div>
+            <div class="col-3">
+                <table class="table table-hover table-rounded">
+                    <thead>
+                        <tr class="table-dark">
+                            <th scope="col">角色名称</th>
+                            <th scope="col">角色命途</th>
+                            <th scope="col">角色属性</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    const sum = avatar_list.length;
+    let cnt = 0, correctCnt = 0, wrongCnt = 0, missCnt = 0;
+
+    function getRandomArray(n, max) {
+        const arr = Array.from({ length: max }, (_, i) => i);
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr.slice(0, n);
+    }
+
+    new_list = getRandomArray(sum, sum);
+
+    function getAnswer() {
+        const selectedPath = document.querySelector('input[name="btnPath"]:checked');
+        const selectedElement = document.querySelector('input[name="btnElement"]:checked');
+        if (!selectedPath || !selectedElement) {
+            alert('请完成所有选择');
+            return;
+        }
+        const answer = {
+            path: selectedPath.id.replace('btn', ''),
+            element: selectedElement.id.replace('btn', '')
+        };
+        console.log('提交的答案:', answer);
+        return answer;
+    }
+
+    function getCorrectAnswer() {
+        const avatar = avatar_list[new_list[cnt - 1]];
+        return {
+            path: avatar.Path,
+            element: avatar.Element
+        };
+    }
+
+    function updateProgressBar() {
+        const successBar = document.getElementById('successBar');
+        const wrongBar = document.getElementById('wrongBar');
+        const missBar = document.getElementById('missBar');
+        const waitBar = document.getElementById('waitBar');
+
+        successBar.style.width = `${(correctCnt / sum) * 100}%`;
+        wrongBar.style.width = `${(wrongCnt / sum) * 100}%`;
+        missBar.style.width = `${(missCnt / sum) * 100}%`;
+        waitBar.style.width = `${((cnt - correctCnt - wrongCnt - missCnt) / sum) * 100}%`;
+    }
+
+    function submitAnswer() {
+        const answer = getAnswer();
+        const correctAnswer = getCorrectAnswer();
+        const avatar = avatar_list[new_list[cnt - 1]];
+
+        const lastRow = document.getElementById(`row-${avatar._id}`);
+        if (!lastRow.classList.contains('table-secondary')) {
+            return;
+        }
+        if (answer.path == correctAnswer.path && answer.element == correctAnswer.element) {
+            lastRow.classList.remove('table-secondary');
+            lastRow.classList.add('table-success');
+            correctCnt++;
+        }
+        else if (answer.path == correctAnswer.path || answer.element == correctAnswer.element) {
+            lastRow.classList.remove('table-secondary');
+            lastRow.classList.add('table-warning');
+            missCnt++;
+        }
+        else {
+            lastRow.classList.remove('table-secondary');
+            lastRow.classList.add('table-danger');
+            wrongCnt++;
+        }
+        lastRow.innerHTML = `
+            <td>${avatar.Name}</td>
+            <td><img src="img/${avatar.Path}.png" alt="${avatar.Name}" class="img-fluid" style="max-width: 40px; height: auto;"></td>
+            <td><img src="img/${avatar.Element}.png" alt="${avatar.Name}" class="img-fluid" style="max-width: 40px; height: auto;"></td>
+        `;
+        updateProgressBar();
+        const submitButton = document.getElementById('btnSubmit');
+        submitButton.setAttribute('disabled', true);
+        // const drawButton = document.getElementById('draw-button');
+        // drawButton.removeAttribute('disabled');
+    }
+
+    function drawCard() {
+        if (cnt > 0) {
+            const lastavatar = avatar_list[new_list[cnt - 1]];
+            const lastRow = document.getElementById(`row-${lastavatar._id}`);
+            if (lastRow.classList.contains('table-secondary')) {
+                submitAnswer();
+            }
+            lastRow.innerHTML = `
+                <td>${lastavatar.Name}</td>
+                <td><img src="img/${lastavatar.Path}.png" alt="${lastavatar.Name}" class="img-fluid" style="max-width: 40px; height: auto;"></td>
+                <td><img src="img/${lastavatar.Element}.png" alt="${lastavatar.Name}" class="img-fluid" style="max-width: 40px; height: auto;"></td>
+            `;
+        }
+
+        if (cnt >= sum) {
+            const drawButton = document.getElementById('draw-button');
+            drawButton.innerHTML = '已抽完';
+            drawButton.setAttribute('disabled', true);
+            const submitButton = document.getElementById('btnSubmit');
+            submitButton.setAttribute('disabled', true);
+            picture.innerHTML = `
+                <div class="card border-info mt-5" style="width: 18rem;">
+                    <div class="card-header">结算界面</div>
+                    <div class="card-body">
+                        <p class="card-text">答对：${correctCnt}</p>
+                        <p class="card-text">答错：${wrongCnt}</p>
+                        <p class="card-text">答漏：${missCnt}</p>
+                    </div>
+                </div>
+            `;
+            theName.innerHTML = ""
+            updateProgressBar();
+            return;
+        }
+        const randomIndex = new_list[cnt];
+        const avatar = avatar_list[randomIndex];
+        picture.innerHTML = `
+            <img src="Avatar/${avatar._id}.png" alt="${avatar.Name}" class="img-fluid" style="max-width: 80%; height: auto;">
+        `;
+        theName.innerHTML = `
+            <h2 class="btn btn-primary btn-lg my-3">${avatar.Name}</h2>
+        `;
+        const tableBody = document.getElementById('table-body');
+        const newRow = `<tr id="row-${avatar._id}" class="table-secondary">
+                <td>${avatar.Name}</td>
+                <td><img src="img/Q.png" class="img-fluid" style="max-width: 40px; height: auto;"></td>
+                <td><img src="img/Q.png" class="img-fluid" style="max-width: 40px; height: auto;"></td>
+            </tr>
+        `;
+        tableBody.innerHTML = newRow + tableBody.innerHTML;
+        cnt++;
+        updateProgressBar();
+        const submitButton = document.getElementById('btnSubmit');
+        submitButton.removeAttribute('disabled');
+        // const drawButton = document.getElementById('draw-button');
+        // drawButton.setAttribute('disabled', true);
+    }
+
+    drawCard();
+</script>
+
+<style>
+    .table-rounded {
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+</style>
+
+</html>
